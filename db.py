@@ -11,6 +11,7 @@ cursor = midb.cursor()
 
 cursor.execute("SELECT * FROM Usuario")
 
-resultado = cursor.fetchall()
+#resultado = cursor.fetchall()
+resultado = cursor.fetchone()
 
 print(resultado)
