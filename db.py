@@ -9,9 +9,18 @@ midb = mysql.connector.connect(
 
 cursor = midb.cursor()
 
-cursor.execute("SELECT * FROM Usuario")
+#cursor.execute("SELECT * FROM Usuario")
 
 #resultado = cursor.fetchall()
-resultado = cursor.fetchone()
+#resultado = cursor.fetchone()
 
-print(resultado)
+#consultar como esta la tabla
+#cursor.execute("show create table Usuario")
+
+#insertar datos
+sql = "INSERT INTO Usuario (id, email, username, edad) VALUES (%s,%s, %s, %s)"
+values = (2,"liloliol@hotmail.com","SharkD", 28)
+cursor.execute(sql, values)
+
+midb.commit()
+print(cursor.rowcount, "registro insertado")
