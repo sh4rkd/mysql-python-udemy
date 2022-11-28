@@ -28,9 +28,12 @@ cursor = midb.cursor()
 # cursor.execute(sql, values)
 
 #eliminar datos
-sql = "DELETE FROM Usuario where id = %s"
-values = (1,)
-cursor.execute(sql, values)
+# sql = "DELETE FROM Usuario where id = %s"
+# values = (1,)
+# cursor.execute(sql, values)
+# midb.commit()
+# print(cursor.rowcount, "registros eliminados")
 
-midb.commit()
-print(cursor.rowcount, "registros eliminados")
+cursor.execute("SELECT * FROM Usuario limit 1")
+resultado = cursor.fetchall()
+print(resultado)
