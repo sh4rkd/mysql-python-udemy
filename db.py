@@ -3,7 +3,7 @@ import mysql.connector
 midb = mysql.connector.connect(
     host="localhost",
     user="SharkD",
-    passwd="password",
+    passwd="250893",
     database="prueba"
 )
 
@@ -18,9 +18,14 @@ cursor = midb.cursor()
 #cursor.execute("show create table Usuario")
 
 #insertar datos
-sql = "INSERT INTO Usuario (id, email, username, edad) VALUES (%s,%s, %s, %s)"
-values = (2,"liloliol@hotmail.com","SharkD", 28)
+# sql = "INSERT INTO Usuario (id, email, username, edad) VALUES (%s,%s, %s, %s)"
+# values = (2,"liloliol@hotmail.com","SharkD", 28)
+# cursor.execute(sql, values)
+
+#actualizar datos
+sql = "UPDATE Usuario set email = %s where id = %s"
+values = ("pepe@ppe.com",1)
 cursor.execute(sql, values)
 
 midb.commit()
-print(cursor.rowcount, "registro insertado")
+print(cursor.rowcount, "registro actualizado")
