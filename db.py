@@ -23,9 +23,14 @@ cursor = midb.cursor()
 # cursor.execute(sql, values)
 
 #actualizar datos
-sql = "UPDATE Usuario set email = %s where id = %s"
-values = ("pepe@ppe.com",1)
+# sql = "UPDATE Usuario set email = %s where id = %s"
+# values = ("pepe@ppe.com",1)
+# cursor.execute(sql, values)
+
+#eliminar datos
+sql = "DELETE FROM Usuario where id = %s"
+values = (1,)
 cursor.execute(sql, values)
 
 midb.commit()
-print(cursor.rowcount, "registro actualizado")
+print(cursor.rowcount, "registros eliminados")
